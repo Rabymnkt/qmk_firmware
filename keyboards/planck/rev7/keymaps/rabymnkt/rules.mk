@@ -1,2 +1,4 @@
 DEFERRED_EXEC_ENABLE = yes
 AUDIO_ENABLE = no
+
+BOOTLOADER = qmk-dfu
