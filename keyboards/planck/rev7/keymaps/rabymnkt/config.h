@@ -25,6 +25,11 @@
         { SONG(QWERTY_SOUND), SONG(COLEMAK_SOUND), SONG(DVORAK_SOUND) }
 #endif
 
+#ifdef MOUSEKEY_ENABLE
+    #define MOUSEKEY_MAX_SPEED 5
+//    #define MK_COMBINED
+    #define MK_3_SPEED
+#endif
 /*
  * MIDI options
  */
