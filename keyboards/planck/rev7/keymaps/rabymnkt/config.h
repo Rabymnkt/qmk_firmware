@@ -17,6 +17,10 @@
 #pragma once
 
 #define TAPPING_TOGGLE 2
+
+/* #define TAPPING_FORCE_HOLD */
+/* #define TAPPING_TERM 200 */
+
 #ifdef AUDIO_ENABLE
 #    define STARTUP_SONG SONG(PLANCK_SOUND)
 // #define STARTUP_SONG SONG(NO_SOUND)
