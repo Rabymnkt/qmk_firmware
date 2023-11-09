@@ -37,9 +37,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [KL_LOWER] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_TAB,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                         KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_BSPC,
+       KC_TAB,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                         KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_UNDS,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LCTL, KC_CAPS, SGUI(KC_LEFT), XXXXXXX, ESC_ENG, TT(4),                  KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, XXXXXXX, XXXXXXX,
+      KC_LCTL, KC_CAPS, SGUI(KC_LEFT), XXXXXXX, ESC_ENG, TT(4),                  KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, XXXXXXX, KC_RCTL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX,  KC_ESC,   MO(5),                      KC_HOME, KC_PGDN, KC_PGUP,  KC_END, KC_RGUI, KC_RALT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -51,7 +51,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       KC_TILD, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_CIRC,  KC_DLR, KC_UNDS,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LCTL, KC_MINS,  KC_EQL, KC_PLUS, KC_LCBR, KC_LPRN,                      KC_RPRN, KC_RCBR, KC_BSLS, KC_SLSH, XXXXXXX, XXXXXXX,
+      KC_LCTL, KC_MINS,  KC_EQL, KC_PLUS, KC_LCBR, KC_LPRN,                      KC_RPRN, KC_RCBR, KC_BSLS, KC_SLSH, XXXXXXX, KC_RCTL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT, XXXXXXX, XXXXXXX,  KC_GRV,   KC_LT, KC_LBRC,                      KC_RBRC,   KC_GT, KC_PIPE, XXXXXXX, KC_RGUI, KC_RALT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -63,9 +63,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
         KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,                        KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LCTL, KC_VOLU, KC_MPLY, KC_MNXT,IME_LOCK, XXXXXXX,                    KC_WFWD,IME_UNLOCK, KC_WSTP, KC_WBAK, KC_PSCR,  KC_INS,
+      KC_LCTL, KC_PSCR, XXXXXXX, KC_VOLD,KC_MUTE, KC_VOLU,                       KC_WBAK,KC_WSCH, KC_WHOM, KC_WFWD, KC_WREF,  _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT, KC_VOLD, KC_MUTE, KC_MPRV, LAG_SWP, RAG_SWP,                      RAG_NRM, LAG_NRM, KC_WHOM, KC_WREF, KC_RGUI, KC_RALT,
+      KC_LSFT, KC_INS, XXXXXXX, IME_LOCK, LAG_SWP, KC_MPLY,                      KC_MPRV, LAG_NRM, IME_UNLOCK, KC_MNXT, _______, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           _______, _______, KC_BSPC,     KC_SPC, _______, _______
                                       //`--------------------------'  `--------------------------'
@@ -73,11 +73,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [KL_NUMPAD] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,----------------------------------------------------.
-       KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      XXXXXXX,  KC_P7,   KC_P8,   KC_P9, XXXXXXX, KC_BSPC,
+       KC_TAB, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, KC_P7, KC_P8,   KC_P9,  KC_NUM,  KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+-------+--------+--------+--------+--------|
-      KC_LCTL,    KC_A,    KC_S,    KC_D,    KC_F,   TT(4),                      XXXXXXX,  KC_P4,   KC_P5,   KC_P6, XXXXXXX,  KC_DEL,
+      KC_LCTL, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   TT(4),                      XXXXXXX,  KC_P4,   KC_P5,   KC_P6, KC_PAST, KC_PSLS,
   //|--------+--------+--------+--------+--------+--------|                    |--------+-------+--------+--------+--------+--------|
-      KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                      XXXXXXX,  KC_P1,   KC_P2,   KC_P3, XXXXXXX, KC_NLCK,
+      KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX,  KC_P1,   KC_P2,   KC_P3, KC_PPLS, KC_PMNS,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+-------+--------+--------+--------+--------|
                                           XXXXXXX, _______, KC_BSPC,     KC_SPC,   KC_P0,  KC_ENT
                                       //`--------------------------'  `--------------------------'
@@ -211,7 +211,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (record->event.pressed) {
             // キーコード ESC_ENG が押された時
             tap_code(KC_ESC);
-            tap_code(KC_LANG2);
+            tap_code(KC_LNG2);
         }
         break;
     case LOWER:
@@ -223,7 +223,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             layer_off(KL_LOWER);
             update_tri_layer(KL_LOWER, KL_RAISE, KL_ADJUST);
             if (is_lower_pressed){
-                tap_code(KC_LANG2);
+                tap_code(KC_LNG2);
             }
             is_lower_pressed = false;
         }
@@ -238,7 +238,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             layer_off(KL_RAISE);
             update_tri_layer(KL_LOWER, KL_RAISE, KL_ADJUST);
             if(is_upper_pressed && !is_ime_locked){
-                tap_code(KC_LANG1);
+                tap_code(KC_LNG1);
             }
             is_upper_pressed = false;
         }
