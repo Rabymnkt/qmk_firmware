@@ -76,8 +76,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (record->event.pressed) {
             // キーコード ESC_ENG が押された時
             tap_code(KC_ESC);
+        }else{
+            // キーコード ESC_ENG が離された時
             tap_code(KC_LNG2);
         }
+
         return false;
         break;
     case LOWER:
