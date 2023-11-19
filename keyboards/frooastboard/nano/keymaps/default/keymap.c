@@ -43,5 +43,5 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 	[6] = LAYOUT(
 		KC_TRNS, KC_TRNS,
-		QK_BOOT, TO(5))
+		RESET, TO(5))
 };

@@ -26,16 +26,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MANUFACTURER aki27
 #define PRODUCT      cocot46plus
 
-/* VIA */
-#define DYNAMIC_KEYMAP_LAYER_COUNT 7
-
 /* key matrix size */
 #define MATRIX_ROWS 10
 #define MATRIX_COLS 6
 
 // wiring of each half
-#define MATRIX_ROW_PINS { D4, C6, D7, E6, NO_PIN }
+#define MATRIX_ROW_PINS { D4, C6, D7, E6, D1 }
 #define MATRIX_COL_PINS { F4, F5, F6, F7, B1, B3 }
+#define UNUSED_PINS
 
 /* Set 0 if debouncing isn't needed */
 #define DEBOUNCE 5
@@ -46,7 +44,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #undef LOCKING_RESYNC_ENABLE
 
 /* Limit the maximum layer number to 8 */
-// #define LAYER_STATE_8BIT
+#define LAYER_STATE_8BIT
 
 /* Rotary encoder */
 #define ENCODERS_PAD_A { D3 }
@@ -61,14 +59,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #ifdef RGBLIGHT_ENABLE
     #undef RGBLED_NUM
-    //#define RGBLIGHT_ANIMATIONS
-    // select individual effect 
+    #define RGBLIGHT_ANIMATIONS
+    /* select individual effect 
     #define RGBLIGHT_EFFECT_BREATHING
     #define RGBLIGHT_EFFECT_RAINBOW_MOOD
     #define RGBLIGHT_EFFECT_RAINBOW_SWIRL
     #define RGBLIGHT_EFFECT_SNAKE
     #define RGBLIGHT_EFFECT_STATIC_GRADIENT
     #define RGBLIGHT_EFFECT_TWINKLE
+    */
 
     #define RGBLED_NUM 12
     #define RGBLIGHT_LIMIT_VAL 120
@@ -82,4 +81,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define ADNS5050_CS_PIN           B5
 
 #define POINTING_DEVICE_ROTATION_180
-#define OLED_FONT_H "keyboards/aki27/cocot46plus/glcdfont.c"
+#define OLED_FONT_H "keyboards/cocot46plus/glcdfont.c"

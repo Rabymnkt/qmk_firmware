@@ -23,12 +23,15 @@
 #define IGNORE_MOD_TAP_INTERRUPT
 
 // Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
-#define QUICK_TAP_TERM 0
+#define TAPPING_FORCE_HOLD
 
 // Auto Shift
 #define NO_AUTO_SHIFT_ALPHA
 #define AUTO_SHIFT_TIMEOUT TAPPING_TERM
 #define AUTO_SHIFT_NO_SETUP
+
+// Recommended for heavy chording.
+#define QMK_KEYS_PER_SCAN 4
 
 // Mouse key speed and acceleration.
 #undef MOUSEKEY_DELAY
@@ -57,6 +60,10 @@
 
 #define RGBLIGHT_LIMIT_VAL 10
 
+//bootmagic
+#define BOOTMAGIC_KEY_SALT KC_V
+#define BOOTMAGIC_KEY_EEPROM_CLEAR KC_Q
+
 #ifdef RGB_MATRIX_ENABLE
 
 #    undef ENABLE_RGB_MATRIX_ALPHAS_MODS
@@ -77,7 +84,7 @@
 #    undef ENABLE_RGB_MATRIX_CYCLE_SPIRAL
 #    undef ENABLE_RGB_MATRIX_JELLYBEAN_RAINDROPS
 
-#    undef RGB_MATRIX_DEFAULT_MODE
+#    undef RGB_MATRIX_STARTUP_MODE
 
 #    define RGBLIGHT_HUE_STEP 20
 

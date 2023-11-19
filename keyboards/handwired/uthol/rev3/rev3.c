@@ -16,3 +16,5 @@
  */
 
 #include QMK_KEYBOARD_H
+
+void board_init(void) { setPinInputHigh(B9); }

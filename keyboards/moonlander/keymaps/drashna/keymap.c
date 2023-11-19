@@ -16,9 +16,7 @@
 
 #include "drashna.h"
 
-enum more_custom_keycodes {
-    KC_SWAP_NUM = USER_SAFE_RANGE,
-};
+enum more_custom_keycodes { KC_SWAP_NUM = NEW_SAFE_RANGE };
 
 // clang-format off
 #define LAYOUT_moonlander_wrapper(...) LAYOUT_moonlander(__VA_ARGS__)
@@ -108,12 +106,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_ADJUST] = LAYOUT_moonlander_wrapper(
-        QK_MAKE, KC_WIDE,KC_AUSSIE,KC_SCRIPT,KC_ZALGO,KC_NOMODE,_______,   KC_NUKE,KC_NOMODE,KC_BLOCKS,KC_REGIONAL,_______,_______, QK_BOOT,
-        VRSN,    _________________ADJUST_L1_________________, TG(_DIABLOII),  _______, _________________ADJUST_R1_________________, EE_CLR,
+        KC_MAKE, KC_WIDE,KC_AUSSIE,KC_SCRIPT,KC_ZALGO,KC_NOMODE,_______,   KC_NUKE,KC_NOMODE,KC_BLOCKS,KC_REGIONAL,_______,_______, KC_RST,
+        VRSN,    _________________ADJUST_L1_________________, TG(_DIABLOII),  _______, _________________ADJUST_R1_________________, EEP_RST,
         KEYLOCK, _________________ADJUST_L2_________________, _______,        _______, _________________ADJUST_R2_________________, RGB_IDL,
-        UC_NEXT, _________________ADJUST_L3_________________,                          _________________ADJUST_R3_________________, TG_MODS,
+        UC_MOD,  _________________ADJUST_L3_________________,                          _________________ADJUST_R3_________________, TG_MODS,
         _______, _______, _______, _______, _______,          _______,        _______,          _______, _______, _______, _______, AUTO_CTN,
-                                            QK_RBT,  _______, _______,        _______, _______, _______
+                                            REBOOT,  _______, _______,        _______, _______, _______
     ),
 };
 

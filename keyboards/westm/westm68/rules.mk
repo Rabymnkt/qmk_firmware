@@ -1,3 +1,9 @@
+# MCU name
+MCU = STM32F072
+
+# Bootloader selection
+BOOTLOADER = stm32-dfu
+
 # Wildcard to allow APM32 MCU
 DFU_SUFFIX_ARGS = -v FFFF -p FFFF
 
@@ -11,7 +17,5 @@ CONSOLE_ENABLE = yes        # Console for debug
 COMMAND_ENABLE = yes        # Commands for debug and configuration
 NKRO_ENABLE = yes           # Enable N-Key Rollover
 BACKLIGHT_ENABLE = no       # Enable keyboard backlight functionality
-RGBLIGHT_ENABLE = yes        # Enable keyboard RGB underglow
+RGBLIGHT_ENABLE = no        # Enable keyboard RGB underglow
 AUDIO_ENABLE = no           # Audio output
-
-DEFAULT_FOLDER = westm/westm68/rev2

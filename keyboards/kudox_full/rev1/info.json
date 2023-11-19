@@ -1,18 +1,7 @@
 {
-    "keyboard_name": "The Kudox Full Keyboard Rev1",
-    "manufacturer": "Kumao Kobo",
     "url": "http://kumaokobo.com/",
     "maintainer": "Kumao Kobo",
-    "usb": {
-        "vid": "0xABBA",
-        "pid": "0x9693",
-        "device_version": "1.0.0"
-    },
-    "split": {
-        "soft_serial_pin": "D2"
-    },
-    "processor": "atmega32u4",
-    "bootloader": "caterina",
+    "keyboard_name": "Kudox Full Keyboard Rev1",
     "layouts": {
         "LAYOUT": {
             "layout": [

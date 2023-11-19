@@ -1,18 +1,7 @@
 {
-    "keyboard_name": "The Kudox Keyboard Rev3",
-    "manufacturer": "Kumao Kobo",
     "url": "http://kumaokobo.com/",
     "maintainer": "Kumao Kobo",
-    "usb": {
-        "vid": "0xABBA",
-        "pid": "0x9690",
-        "device_version": "3.0.0"
-    },
-    "split": {
-        "soft_serial_pin": "D0"
-    },
-    "processor": "atmega32u4",
-    "bootloader": "caterina",
+    "keyboard_name": "Kudox Keyboard Rev3",
     "layouts": {
         "LAYOUT": {
             "layout": [

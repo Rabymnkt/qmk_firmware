@@ -4,7 +4,7 @@
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /* LAYERS
    * ,-----------------------.
-   * |     |     |     |QK_BOOT|
+   * |     |     |     |RESET|
    * |-----+-----+-----+-----|
    * |MUSIC|     |     |     |
    * |-----+-----+-----+-----|
@@ -14,7 +14,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * `---------------------- '
    */
   [0] = LAYOUT_ortho_4x4( /* LAYER SELECT */
-    _______, _______, _______, QK_BOOT,
+    _______, _______, _______, RESET,
     TO(4),   _______, _______, _______,
     TO(1),   TO(2),   TO(3),   _______,
     _______, _______, _______, _______
@@ -48,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * `---------------------- '
    */
   [5] = LAYOUT_ortho_4x4( /* NUMPAD SUPPLEMENT */
-    KC_NUM,  _______, _______, TO(0),
+    KC_NLCK, _______, _______, TO(0),
     _______, _______, _______, _______,
     _______, _______, _______, _______,
     _______, _______, _______, _______
@@ -102,7 +102,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    MU_TOGG, MU_NEXT, XXXXXXX, TO(0)
+    MU_TOG,   MU_MOD, XXXXXXX, TO(0)
   ),
 };
 

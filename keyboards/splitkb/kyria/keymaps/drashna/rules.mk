@@ -17,10 +17,11 @@ ifeq ($(strip $(KEYBOARD)), splitkb/kyria/rev1/proton_c)
     TAP_DANCE_ENABLE       = yes
     SWAP_HANDS_ENABLE      = yes
     LTO_ENABLE             = no
-    ENCODER_MAP_ENABLE     = yes
-    AUTOCORRECT_ENABLE     = yes
+    CTPC                   = yes
+    AUTOCORRECTION_ENABLE  = yes
     CAPS_WORD_ENABLE       = yes
     OLED_DRIVER            = custom
+    DEBUG_MATRIX_SCAN_RATE_ENABLE = api
 else
     LTO_ENABLE             = yes
     BOOTLOADER             = qmk-hid

@@ -17,6 +17,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
+#include "config_common.h"
+
+/* USB Device descriptor parameter */
+#define VENDOR_ID 0x1D50
+#define PRODUCT_ID 0x6052
+#define DEVICE_VER 0x0001
+#define MANUFACTURER Nicolas Schodet
+#define PRODUCT Splitty
+
+/* key matrix size */
+#define MATRIX_ROWS 10
+#define MATRIX_COLS 7
 
 /* Keyboard Matrix Assignments */
 #define MATRIX_ROW_PINS \
@@ -29,6 +41,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define USE_I2C
 #define EE_HANDS
 #define SPLIT_USB_DETECT
+
+/* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
+#define DEBOUNCE 5
 
 /*
  * Feature disable options

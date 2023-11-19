@@ -9,6 +9,7 @@
 #include "lighting.h"
 #include "debug.h"
 
+#define BACKLIGHT_BREATHING
 #include "quantum.h"
 
 uint16_t click_hz = CLICK_HZ;
@@ -114,14 +115,14 @@ bool process_record_kb(uint16_t keycode, keyrecord_t* record)
     if (click_toggle && record->event.pressed){
         click(click_hz, click_time);
     }
-    if (keycode == QK_BOOT) {
+    if (keycode == RESET) {
         reset_keyboard_kb();
     } else {
     }
     return process_record_user(keycode, record);
 }
 
-void reset_keyboard_kb(void){
+void reset_keyboard_kb(){
 #ifdef WATCHDOG_ENABLE
     MCUSR = 0;
     wdt_disable();
@@ -133,17 +134,15 @@ void reset_keyboard_kb(void){
     reset_keyboard();
 }
 
-bool led_update_kb(led_t led_state) {
-    bool res = led_update_user(led_state);
-    if(res) {
-        // Set capslock LED to Blue
-        if (led_state.caps_lock) {
-            set_rgb(31, 0x00, 0x00, 0x7F);
-        } else{
-            set_rgb(31, 0x00, 0x00, 0x00);
-        }
+void led_set_kb(uint8_t usb_led)
+{
+    // Set capslock LED to Blue
+    if (usb_led & (1 << USB_LED_CAPS_LOCK)) {
+        set_rgb(31, 0x00, 0x00, 0x7F);
+    }else{
+        set_rgb(31, 0x00, 0x00, 0x00);
     }
-    return res;
+    led_set_user(usb_led);
 }
 
 // Lighting info, see lighting.h for details

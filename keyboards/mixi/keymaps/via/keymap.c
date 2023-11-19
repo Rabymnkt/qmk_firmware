@@ -44,7 +44,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * .--------------------------------------.
      * | N/A          | N/A   | Hold: Layer 2 |
      * |--------------|-------|---------------|
-     * | Clear EEPROM | Bootloader | Debug    |
+     * | RESET EEPROM | RESET | DEBUG MODE    |
      * |--------------|-------|---------------|
      * | N/A          | N/A   | N/A           |
      * '--------------------------------------'
@@ -52,7 +52,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [2] =
         LAYOUT(
                 KC_NO  , KC_NO, KC_TRNS,
-                EE_CLR,  QK_BOOT, DB_TOGG,
+                EEP_RST, RESET, DEBUG  ,
                 KC_NO  , KC_NO, KC_NO
               ),
 

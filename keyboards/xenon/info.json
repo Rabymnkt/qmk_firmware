@@ -1,23 +1,8 @@
 {
   "keyboard_name": "Xenon",
-  "manufacturer": "narinari",
   "url": "https://github.com/narinari/xenon-keyboard",
   "maintainer": "Kyrremann",
-  "usb": {
-    "vid": "0xFEED",
-    "pid": "0x3404",
-    "device_version": "0.0.1"
-  },
-  "encoder": {
-    "rotary": [
-      {"pin_a": "B6", "pin_b": "B5"}
-    ]
-  },
-  "split": {
-    "soft_serial_pin": "D2"
-  },
-  "processor": "atmega32u4",
-  "bootloader": "caterina",
+  "manufacturer": "narinari",
   "layouts": {
     "LAYOUT": {
       "layout": [

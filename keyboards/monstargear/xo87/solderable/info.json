@@ -1,19 +1,7 @@
 {
-    "keyboard_name": "XO87 Soldered",
-    "manufacturer": "Monstargear",
+    "keyboard_name": "XO87 Solderable",
     "url": "https://www.monstargears.com/",
     "maintainer": "qmk",
-    "usb": {
-        "vid": "0x4D47",
-        "pid": "0x5344",
-        "device_version": "0.0.1"
-    },
-    "backlight": {
-        "driver": "custom",
-        "pin": "F0"
-    },
-    "processor": "at90usb646",
-    "bootloader": "lufa-dfu",
     "layouts": {
         "LAYOUT_all": {
             "layout": [

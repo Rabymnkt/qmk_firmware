@@ -1,20 +1,7 @@
 {
     "keyboard_name": "Majbritt Rev2",
-    "manufacturer": "SiddersKb",
-    "url": "https://sidderskb.co.uk/",
     "maintainer": "Sleepdealr",
-    "usb": {
-        "vid": "0x534B",
-        "pid": "0x0001",
-        "device_version": "0.0.2"
-    },
-    "encoder": {
-        "rotary": [
-            {"pin_a": "B3", "pin_b": "B7"}
-        ]
-    },
-    "processor": "atmega32u4",
-    "bootloader": "atmel-dfu",
+    "url": "https://sidderskb.co.uk/",
     "layouts": {
         "LAYOUT": {
             "layout": [

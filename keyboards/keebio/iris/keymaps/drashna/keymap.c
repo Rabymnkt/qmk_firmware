@@ -91,8 +91,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    ),
 
   [_ADJUST] = LAYOUT_wrapper(
-      QK_MAKE, _______, _______, _______, _______, _______,                      _________________ADJUST_R1_________________, QK_BOOT,
-      VRSN,    _________________ADJUST_L1_________________,                      KC_NUKE, _______, _______, _______, _______, EE_CLR,
+      KC_MAKE, _______, _______, _______, _______, _______,                      _________________ADJUST_R1_________________, KC_RST,
+      VRSN,    _________________ADJUST_L1_________________,                      KC_NUKE, _______, _______, _______, _______, EEP_RST,
       _______, _________________ADJUST_L2_________________,                      _________________ADJUST_R2_________________, TG_MODS,
       _______, _________________ADJUST_L3_________________, TG_GAME,    _______, _________________ADJUST_R3_________________, KC_MPLY,
                                         _______, _______, _______,        _______, _______, _______
@@ -100,6 +100,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 // clang-format on
+
+void matrix_init_keymap(void) {
+#ifndef CONVERT_TO_PROTON_C
+    setPinOutput(D5);
+    writePinHigh(D5);
+
+    setPinOutput(B0);
+    writePinHigh(B0);
+#endif
+}
 
 void keyboard_post_init_keymap(void) {
 #if BACKLIGHT_ENABLE

@@ -6,14 +6,14 @@
 
 bool process_record_kb(uint16_t keycode, keyrecord_t* record)
 {
-    if (keycode == QK_BOOT) {
+    if (keycode == RESET) {
         reset_keyboard_kb();
     } else {
     }
     return process_record_user(keycode, record);
 }
 
-void reset_keyboard_kb(void){
+void reset_keyboard_kb(){
 #ifdef WATCHDOG_ENABLE
     MCUSR = 0;
     wdt_disable();

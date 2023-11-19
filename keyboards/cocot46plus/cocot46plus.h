@@ -69,14 +69,6 @@ enum cocot_keycodes {
 
 };
 
-#define CPI_SW USER00
-#define SCRL_SW USER01
-#define ROT_R15 USER02
-#define ROT_L15 USER03
-#define SCRL_MO USER04
-#define SCRL_TO USER05
-#define SCRL_IN USER06
-
 bool encoder_update_user(uint8_t index, bool clockwise);
 bool encoder_update_kb(uint8_t index, bool clockwise);
 bool cocot_get_scroll_mode(void);
@@ -84,3 +76,4 @@ void cocot_set_scroll_mode(bool mode);
 
 void render_logo(void);
 void oled_write_layer_state(void);
+void oled_write_layer_state_tc(void);

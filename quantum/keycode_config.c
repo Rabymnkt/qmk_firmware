@@ -16,19 +16,19 @@
 
 #include "keycode_config.h"
 
+extern keymap_config_t keymap_config;
+
 /** \brief keycode_config
  *
  * This function is used to check a specific keycode against the bootmagic config,
  * and will return the corrected keycode, when appropriate.
  */
-__attribute__((weak)) uint16_t keycode_config(uint16_t keycode) {
+uint16_t keycode_config(uint16_t keycode) {
     switch (keycode) {
         case KC_CAPS_LOCK:
         case KC_LOCKING_CAPS_LOCK:
             if (keymap_config.swap_control_capslock || keymap_config.capslock_to_control) {
                 return KC_LEFT_CTRL;
-            } else if (keymap_config.swap_escape_capslock) {
-                return KC_ESCAPE;
             }
             return keycode;
         case KC_LEFT_CTRL:
@@ -96,8 +96,6 @@ __attribute__((weak)) uint16_t keycode_config(uint16_t keycode) {
         case KC_ESCAPE:
             if (keymap_config.swap_grave_esc) {
                 return KC_GRAVE;
-            } else if (keymap_config.swap_escape_capslock) {
-                return KC_CAPS_LOCK;
             }
             return KC_ESCAPE;
         case KC_BACKSLASH:
@@ -121,7 +119,7 @@ __attribute__((weak)) uint16_t keycode_config(uint16_t keycode) {
  *  and will remove or replace mods, based on that.
  */
 
-__attribute__((weak)) uint8_t mod_config(uint8_t mod) {
+uint8_t mod_config(uint8_t mod) {
     if (keymap_config.swap_lalt_lgui) {
         if ((mod & MOD_RGUI) == MOD_LGUI) {
             mod &= ~MOD_LGUI;

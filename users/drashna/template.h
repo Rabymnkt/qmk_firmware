@@ -12,7 +12,7 @@
 
 enum custom_keycodes {
     VRSN = SAFE_RANGE,  // can always be here
-    QK_MAKE,
-    QK_BOOT,
+    KC_MAKE,
+    KC_RESET,
     NEWPLACEHOLDER  // use "NEWPLACEHOLDER for keymap specific codes
 };

@@ -53,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Layer 1, function layer
  _________________________________________________________________________________________________________________________________  ________
 |        |        |        |        |        |        |        |        |        |        |        |        |        |            || PLAY/  |
-| QK_BOOT  |        |        |        |        |        |        |        |        |        |        |        |        |            || PAUSE  |
+| RESET  |        |        |        |        |        |        |        |        |        |        |        |        |            || PAUSE  |
 |________|________|________|________|________|________|________|________|________|________|________|________|________|____________||________|
 |        |        |        |        |        |        |        |        |        |        |  LED   |  LED   |  LED   |            || VOLUME |
 |        |        |        |        |        |        |        |        |        |        | TOGGLE |  DOWN  |  UP    |            ||   UP   |
@@ -71,12 +71,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   |            |        |       |        |                 |                 |        |        |             |   |  HOME  |  PGDN  |  END   |
   |____________|________|_______|________|_________________|_________________|________|________|_____________|   |________|________|________|
 
-   * `QK_BOOT' resets the controller and puts the board into firmware flashing mode.
+   * `RESET' resets the controller and puts the board into firmware flashing mode.
    * If this key is hit accidentally, just unplug the board and plug it back in.
    */
 
   [1] = LAYOUT(
-    QK_BOOT,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,    KC_MPLY,
+    RESET,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,    KC_MPLY,
     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, RGB_TOG, RGB_VAD, RGB_VAI, KC_TRNS,    KC_VOLU,
     KC_PSCR,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_VOLD,
       KC_TRNS,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_TRNS, KC_TRNS, KC_TRNS,         KC_MUTE,

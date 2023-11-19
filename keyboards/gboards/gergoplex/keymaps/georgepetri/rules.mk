@@ -10,7 +10,6 @@ DEBUG_MATRIX           = no
 CONSOLE_ENABLE         = no
 
 #Combos!
-COMBO_ENABLE = yes
 VPATH                  +=  keyboards/gboards/
 
 ifeq ($(strip $(DEBUG_MATRIX)), yes)

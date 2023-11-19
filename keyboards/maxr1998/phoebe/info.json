@@ -7,6 +7,7 @@
     "bootloader": "atmel-dfu",
     "bootloader_instructions": "Tap reset button on the back.",
     "diode_direction": "COL2ROW",
+    "debounce": 5,
     "features": {
         "bootmagic": true,
         "nkro": true,
@@ -14,11 +15,6 @@
         "rgblight": true,
         "key_lock": true,
         "leader": true
-    },
-    "usb": {
-        "vid": "0xFEED",
-        "pid": "0x6060",
-        "device_version": "0.0.1"
     },
     "layouts": {
         "LAYOUT": {

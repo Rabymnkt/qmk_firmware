@@ -1,18 +1,7 @@
 {
-    "keyboard_name": "Montex",
-    "manufacturer": "IDOBAO",
+    "keyboard_name": "montex numpad",
     "url": "https://www.idobao.net/products/ldobao-montex-pad-hot-swappable-mechanical-keyboard-kit",
     "maintainer": "NachoxMacho",
-    "usb": {
-        "vid": "0x6964",
-        "pid": "0x6060",
-        "device_version": "0.0.1"
-    },
-    "backlight": {
-        "pin": "B6"
-    },
-    "processor": "atmega32u4",
-    "bootloader": "atmel-dfu",
     "layouts": {
         "LAYOUT_numpad_6x5": {
             "layout": [

@@ -31,14 +31,7 @@ typedef ioline_t pin_t;
 
 #define writePinHigh(pin) palSetLine(pin)
 #define writePinLow(pin) palClearLine(pin)
-#define writePin(pin, level)   \
-    do {                       \
-        if (level) {           \
-            writePinHigh(pin); \
-        } else {               \
-            writePinLow(pin);  \
-        }                      \
-    } while (0)
+#define writePin(pin, level) ((level) ? (writePinHigh(pin)) : (writePinLow(pin)))
 
 #define readPin(pin) palReadLine(pin)
 

@@ -1,19 +1,7 @@
 {
-  "keyboard_name": "Mild",
-  "manufacturer": "Sauce",
+  "keyboard_name": "Sauce - Mild",
   "url": "",
   "maintainer": "Sauce",
-  "usb": {
-    "vid": "0x8367",
-    "pid": "0x7783",
-    "device_version": "0.0.1"
-  },
-  "indicators": {
-    "caps_lock": "A6",
-    "scroll_lock": "B14"
-  },
-  "processor": "STM32F072",
-  "bootloader": "stm32-dfu",
   "layouts": {
     "LAYOUT_all": {
       "layout": [

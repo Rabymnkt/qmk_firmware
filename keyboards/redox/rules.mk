@@ -1,3 +1,9 @@
+# MCU name
+MCU = atmega32u4
+
+# Bootloader selection
+BOOTLOADER = caterina
+
 # Build Options
 #   change yes to no to disable
 #
@@ -13,7 +19,7 @@ RGBLIGHT_ENABLE = yes       # Enable WS2812 RGB underlight.
 
 SPLIT_KEYBOARD = yes
 
-DEFAULT_FOLDER = redox/rev1/base
+DEFAULT_FOLDER = redox/rev1
 
 # Disable unsupported hardware
 AUDIO_SUPPORTED = no

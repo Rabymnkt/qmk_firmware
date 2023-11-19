@@ -10,7 +10,6 @@ DOCS_PATH = Path('docs/')
 BUILD_PATH = Path('.build/')
 BUILD_DOCS_PATH = BUILD_PATH / 'docs'
 DOXYGEN_PATH = BUILD_PATH / 'doxygen'
-MOXYGEN_PATH = BUILD_DOCS_PATH / 'internals'
 
 
 @cli.subcommand('Build QMK documentation.', hidden=False if cli.config.user.developer else True)
@@ -35,10 +34,10 @@ def generate_docs(cli):
         'stdin': DEVNULL,
     }
 
-    cli.log.info('Generating docs...')
+    cli.log.info('Generating internal docs...')
 
     # Generate internal docs
     cli.run(['doxygen', 'Doxyfile'], **args)
-    cli.run(['moxygen', '-q', '-g', '-o', MOXYGEN_PATH / '%s.md', DOXYGEN_PATH / 'xml'], **args)
+    cli.run(['moxygen', '-q', '-g', '-o', BUILD_DOCS_PATH / 'internals_%s.md', DOXYGEN_PATH / 'xml'], **args)
 
-    cli.log.info('Successfully generated docs to %s.', BUILD_DOCS_PATH)
+    cli.log.info('Successfully generated internal docs to %s.', BUILD_DOCS_PATH)

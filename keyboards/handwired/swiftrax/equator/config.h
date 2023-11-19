@@ -17,6 +17,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
+#include "config_common.h"
+
+/* USB Device descriptor parameter */
+#define VENDOR_ID       0x04D8
+#define PRODUCT_ID      0xE984
+#define DEVICE_VER      0x0001
+#define MANUFACTURER    Swiftrax
+#define PRODUCT         Equator
+/* key matrix size */
+#define MATRIX_ROWS 5
+#define MATRIX_COLS 14
 
 // ROWS: Top to bottom, COLS: Left to right
 
@@ -25,3 +36,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* COL2ROW or ROW2COL */
 #define DIODE_DIRECTION COL2ROW
+
+/* define if matrix has ghost */
+//#define MATRIX_HAS_GHOST
+
+/* Set 0 if debouncing isn't needed */
+#define DEBOUNCE 5

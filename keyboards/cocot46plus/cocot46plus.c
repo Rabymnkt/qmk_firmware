@@ -31,6 +31,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #ifndef COCOT_CPI_OPTIONS
 #    define COCOT_CPI_OPTIONS { 250, 500, 750, 1000, 1250 }
+#    ifndef COCOT_CPI_DEFAULT
+#       define COCOT_CPI_DEFAULT 4
+#    endif
 #endif
 #ifndef COCOT_CPI_DEFAULT
 #    define COCOT_CPI_DEFAULT 4
@@ -38,6 +41,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #ifndef COCOT_SCROLL_DIVIDERS
 #    define COCOT_SCROLL_DIVIDERS { 1, 2, 3, 4, 5, 6 }
+#    ifndef COCOT_SCROLL_DIV_DEFAULT
+#       define COCOT_SCROLL_DIV_DEFAULT 4
+#    endif
 #endif
 #ifndef COCOT_SCROLL_DIV_DEFAULT
 #    define COCOT_SCROLL_DIV_DEFAULT 4
@@ -46,6 +52,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #ifndef COCOT_ROTATION_ANGLE
 #    define COCOT_ROTATION_ANGLE { -60, -45, -30, -15, 0, 15, 30, 45, 60 }
+#    ifndef COCOT_ROTATION_DEFAULT
+#       define COCOT_ROTATION_DEFAULT 2
+#    endif
 #endif
 #ifndef COCOT_ROTATION_DEFAULT
 #    define COCOT_ROTATION_DEFAULT 2
@@ -73,7 +82,6 @@ static int16_t v_acm       = 0;
 void pointing_device_init_kb(void) {
     // set the CPI.
     pointing_device_set_cpi(cpi_array[cocot_config.cpi_idx]);
-    adns5050_write_reg(0x22, 0b10000 | 0x80);
 }
 
 
@@ -195,7 +203,6 @@ void eeconfig_init_kb(void) {
     cocot_config.scrl_mode = false;
     eeconfig_update_kb(cocot_config.raw);
     eeconfig_init_user();
-    adns5050_write_reg(0x22, 0b10000 | 0x80);
 }
 
 
@@ -266,15 +273,6 @@ void oled_write_layer_state(void) {
         case 3:
             oled_write_P(PSTR("Mouse"), false);
             break;
-        case 4:
-            oled_write_P(PSTR("L4   "), false);
-            break;
-        case 5:
-            oled_write_P(PSTR("L5   "), false);
-            break;
-        case 6:
-            oled_write_P(PSTR("L6   "), false);
-            break;
         default:
             oled_write_P(PSTR("Undef"), false);
             break;
@@ -293,4 +291,39 @@ void oled_write_layer_state(void) {
     oled_write(buf3, false);
 }
 
+void oled_write_layer_state_tc(void) {
+
+    oled_write_P(PSTR(" "), false);
+    // int cpi = pointing_device_get_cpi();
+    int cpi = cpi_array[cocot_config.cpi_idx];
+    int scroll_div = scrl_div_array[cocot_config.scrl_div];
+    int angle = angle_array[cocot_config.rotation_angle];
+    
+    char buf1[5];
+    char buf2[3];
+    char buf3[4];
+    snprintf(buf1, 5, "%4d", cpi);
+    snprintf(buf2, 3, "%2d", scroll_div);
+    snprintf(buf3, 4, "%3d", angle);
+
+    int layer = get_highest_layer(layer_state | default_layer_state);
+
+    oled_write_P(PSTR("L:"), false);
+    oled_write(get_u8_str(layer, ' '), false);
+    
+    oled_write_P(PSTR(" /"), false);
+    if (cocot_get_scroll_mode()){
+        oled_write_P(PSTR("S"), false);
+    } else{
+        oled_write_P(PSTR("C"), false);
+    }
+    oled_write_P(PSTR("/"), false);
+    oled_write(buf1, false);
+    oled_write_P(PSTR("/"), false);
+    oled_write(buf2, false);
+    oled_write_P(PSTR("/"), false);
+    oled_write(buf3, false);
+}
+
 #endif
+

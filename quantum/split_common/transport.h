@@ -42,6 +42,7 @@ bool transport_execute_transaction(int8_t id, const void *initiator2target_buf, 
 
 #ifdef ENCODER_ENABLE
 #    include "encoder.h"
+#    define NUMBER_OF_ENCODERS (sizeof((pin_t[])ENCODERS_PAD_A) / sizeof(pin_t))
 #endif // ENCODER_ENABLE
 
 #ifdef BACKLIGHT_ENABLE
@@ -66,7 +67,7 @@ typedef struct _split_master_matrix_sync_t {
 #ifdef ENCODER_ENABLE
 typedef struct _split_slave_encoder_sync_t {
     uint8_t checksum;
-    uint8_t state[NUM_ENCODERS_MAX_PER_SIDE];
+    uint8_t state[NUMBER_OF_ENCODERS];
 } split_slave_encoder_sync_t;
 #endif // ENCODER_ENABLE
 
@@ -114,22 +115,11 @@ typedef struct _split_slave_pointing_sync_t {
 } split_slave_pointing_sync_t;
 #endif // defined(POINTING_DEVICE_ENABLE) && defined(SPLIT_POINTING_ENABLE)
 
-#if defined(HAPTIC_ENABLE) && defined(SPLIT_HAPTIC_ENABLE)
-#    include "haptic.h"
-typedef struct _split_slave_haptic_sync_t {
-    haptic_config_t haptic_config;
-    uint8_t         haptic_play;
-} split_slave_haptic_sync_t;
-#endif // defined(HAPTIC_ENABLE) && defined(SPLIT_HAPTIC_ENABLE)
-
 #if defined(SPLIT_TRANSACTION_IDS_KB) || defined(SPLIT_TRANSACTION_IDS_USER)
 typedef struct _rpc_sync_info_t {
-    uint8_t checksum;
-    struct {
-        int8_t  transaction_id;
-        uint8_t m2s_length;
-        uint8_t s2m_length;
-    } payload;
+    int8_t  transaction_id;
+    uint8_t m2s_length;
+    uint8_t s2m_length;
 } rpc_sync_info_t;
 #endif // defined(SPLIT_TRANSACTION_IDS_KB) || defined(SPLIT_TRANSACTION_IDS_USER)
 
@@ -195,14 +185,6 @@ typedef struct _split_shared_memory_t {
 #if defined(POINTING_DEVICE_ENABLE) && defined(SPLIT_POINTING_ENABLE)
     split_slave_pointing_sync_t pointing;
 #endif // defined(POINTING_DEVICE_ENABLE) && defined(SPLIT_POINTING_ENABLE)
-
-#if defined(SPLIT_WATCHDOG_ENABLE)
-    bool watchdog_pinged;
-#endif // defined(SPLIT_WATCHDOG_ENABLE)
-
-#if defined(HAPTIC_ENABLE)
-    split_slave_haptic_sync_t haptic_sync;
-#endif // defined(HAPTIC_ENABLE)
 
 #if defined(SPLIT_TRANSACTION_IDS_KB) || defined(SPLIT_TRANSACTION_IDS_USER)
     rpc_sync_info_t rpc_info;
