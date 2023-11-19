@@ -32,14 +32,6 @@ enum layer_number {
     _NUMPAD
 };
 
-enum cocot46plus_keycodes {
-    ESC_ENG = SAFE_RANGE,
-    LOWER,
-    RAISE,
-    IME_LOCK,
-    IME_UNLOCK
-};
-
 #define LW_MHEN LT(1,KC_MHEN)  // lower
 #define RS_HENK LT(2,KC_HENK)  // raise
 #define DEL_ALT ALT_T(KC_DEL)
@@ -55,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                                          KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RSFT,
   //|-------------------------------------------------------|                                   |-------------------------------------------------------|
                         KC_LGUI, KC_LALT,   LOWER, KC_BSPC, KC_MS_BTN1,             KC_MS_BTN2,  KC_SPC,   RAISE, KC_RGUI, KC_RALT,
-                                                                 KC_PGUP, KC_MS_BTN3,  KC_PGDOWN, XXXXXXX, XXXXXXX, XXXXXXX
+                                                                 KC_BRIU, KC_MS_BTN3,  KC_BRID, XXXXXXX, XXXXXXX, XXXXXXX
                                                             //`--------------'  `--------------'
     ),
 
@@ -68,7 +60,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_LSFT, XXXXXXX, KC_CAPS, KC_BTN2, KC_BTN1, KC_BTN3,                                       KC_HOME, KC_PGDN, KC_PGUP,  KC_END, KC_RGUI, KC_RALT,
   //|-------------------------------------------------------|                                   |-------------------------------------------------------|
                         _______, _______, _______, _______,   KC_MS_BTN4,             KC_MS_BTN5,  KC_ENT,   RAISE, _______, _______,
-                                                                 KC_PGUP, KC_MS_BTN3,  KC_PGDOWN, XXXXXXX, XXXXXXX, XXXXXXX
+                                                                 KC_VOLU, KC_MS_BTN3,    KC_VOLD, XXXXXXX, XXXXXXX, XXXXXXX
                                                             //`--------------'  `--------------'
     ),
   [_RAISE] = LAYOUT(
@@ -80,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_LSFT, XXXXXXX, XXXXXXX,  KC_GRV,   KC_LT, KC_LBRC,                                       KC_RBRC,   KC_GT, KC_PIPE, XXXXXXX, KC_RGUI, KC_RALT,
   //|-------------------------------------------------------|                                   |-------------------------------------------------------|
                         _______, _______,   LOWER,  KC_DEL,   KC_MS_BTN4,             KC_MS_BTN5, _______, _______, _______, _______,
-                                                                 KC_PGUP, KC_MS_BTN3,  KC_PGDOWN, XXXXXXX, XXXXXXX, XXXXXXX
+                                                                 KC_VOLU, KC_MS_BTN3,    KC_VOLD, XXXXXXX, XXXXXXX, XXXXXXX
                                                             //`--------------'  `--------------'
     ),
 
@@ -88,9 +80,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|-------------------------------------------------------|                                   |-------------------------------------------------------|
         KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,                                         KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,
   //|-------------------------------------------------------|                                   |-------------------------------------------------------|
-      KC_LCTL, KC_PSCR,  CPI_SW, KC_VOLD, KC_MUTE, KC_VOLU,                                       KC_WBAK, KC_WSCH, KC_WHOM, KC_WFWD, KC_WREF, _______,
+      KC_LCTL, KC_PSCR,  KC_INS, KC_VOLD, KC_MUTE, KC_VOLU,                                       KC_WBAK, KC_WSCH, KC_WHOM, KC_WFWD, KC_WREF, SCRL_IN,
   //|-------------------------------------------------------|                                   |-------------------------------------------------------|
-      KC_LSFT,  KC_INS, SCRL_SW,IME_LOCK, LAG_SWP, KC_MPLY,                                       KC_MPRV, LAG_NRM,IME_UNLOCK,KC_MNXT,SCRL_IN, _______,
+      KC_LSFT,  CPI_SW, SCRL_SW,IME_LOCK, LAG_SWP, KC_MPLY,                                       KC_MPRV, LAG_NRM,IME_UNLOCK,KC_MNXT,_______, _______,
   //|-------------------------------------------------------|                                   |-------------------------------------------------------|
                         _______, _______, _______, _______,  _______,                    _______, _______,   _______, _______, _______,
                                                                  KC_PGUP, KC_MS_BTN3,  KC_PGDOWN, XXXXXXX, XXXXXXX, XXXXXXX

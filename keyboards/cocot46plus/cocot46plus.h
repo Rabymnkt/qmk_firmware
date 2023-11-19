@@ -66,6 +66,11 @@ enum cocot_keycodes {
     SCRL_MO,
     SCRL_TO,
     SCRL_IN,
+    ESC_ENG,
+    LOWER,
+    RAISE,
+    IME_LOCK,
+    IME_UNLOCK
 
 };
 
