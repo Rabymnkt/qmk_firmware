@@ -39,6 +39,7 @@
 #define MATRIX_COL_PINS { }
 
 /* Optional SMT LED pins */
+#define RGB_DI_PIN E6
 #define RGBLED_NUM 10
 #define RGBLIGHT_EFFECT_BREATHING
 #define RGBLIGHT_EFFECT_RAINBOW_MOOD

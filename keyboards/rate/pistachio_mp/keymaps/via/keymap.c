@@ -87,8 +87,7 @@ void encoder_action_unregister(void) {
         keyevent_t encoder_event = (keyevent_t) {
             .key = encoder_state >> 1 ? ENC_CW : ENC_CCW,
             .pressed = false,
-            .time = timer_read(),
-            .type = KEY_EVENT
+            .time = (timer_read() | 1)
         };
         encoder_state = 0;
         action_exec(encoder_event);
@@ -100,8 +99,7 @@ void encoder_action_register(uint8_t index, bool clockwise) {
     keyevent_t encoder_event = (keyevent_t) {
         .key = clockwise ? ENC_CW : ENC_CCW,
         .pressed = true,
-        .time = timer_read(),
-        .type = KEY_EVENT
+        .time = (timer_read() | 1)
     };
     encoder_state = (clockwise ^ 1) | (clockwise << 1);
     action_exec(encoder_event);

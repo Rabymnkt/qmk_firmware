@@ -16,6 +16,11 @@
 
 #pragma once
 
+
+#define DIODE_DIRECTION COL2ROW
+
+#define RGB_DI_PIN F0
+
 #define RGB_MATRIX_LED_COUNT 67
 
 #define RGB_DISABLE_WHEN_USB_SUSPENDED

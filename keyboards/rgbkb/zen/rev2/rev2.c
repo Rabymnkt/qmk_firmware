@@ -1,4 +1,4 @@
-#include "quantum.h"
+#include "rev2.h"
 
 #ifdef OLED_ENABLE
 #include "split_util.h"

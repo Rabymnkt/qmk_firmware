@@ -1,4 +1,4 @@
-#include QMK_KEYBOARD_H
+#include "scrabblepad.h"
 #include <stdlib.h>
 
 static uint16_t keystroke;

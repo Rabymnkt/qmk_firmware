@@ -21,3 +21,5 @@ const uint16_t PROGMEM bootloader_combo[] = {
 combo_t key_combos[] = {
     COMBO(bootloader_combo, QK_BOOTLOADER),
 };
+
+uint16_t COMBO_LEN = sizeof(key_combos) / sizeof(key_combos[0]);

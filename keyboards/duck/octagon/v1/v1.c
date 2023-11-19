@@ -13,7 +13,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include "quantum.h"
+#include "v1.h"
 
 enum BACKLIGHT_AREAS {
   BACKLIGHT_ALPHA    = 0b0000001,

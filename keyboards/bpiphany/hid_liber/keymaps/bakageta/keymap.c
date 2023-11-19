@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include QMK_KEYBOARD_H
+#include "hid_liber.h"
 
 // Helpful defines
 #define FN_CAPS LT(_FL, KC_CAPS)

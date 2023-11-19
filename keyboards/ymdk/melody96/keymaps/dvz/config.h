@@ -16,6 +16,7 @@
 
 #pragma once
 
+#define COMBO_COUNT 4
 #define COMBO_TERM 100
 
 //#define UNICODE_SELECTED_MODES UNICODE_MODE_WINCOMPOSE

@@ -2,6 +2,13 @@
 */
 #include QMK_KEYBOARD_H
 
+#ifndef KEYMAP_GERMAN
+#define KEYMAP_GERMAN
+
+#include "keymap.h"
+
+#endif
+
 //Tap Dance Declarations
 enum {
   TD_ESC_RUPT = 0

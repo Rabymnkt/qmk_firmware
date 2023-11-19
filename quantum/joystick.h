@@ -22,9 +22,9 @@
 #include "gpio.h"
 
 /**
- * \file
+ * \defgroup joystick
  *
- * \defgroup joystick HID Joystick
+ * HID Joystick
  * \{
  */
 

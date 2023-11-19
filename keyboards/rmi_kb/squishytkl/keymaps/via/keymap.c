@@ -29,26 +29,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 keyevent_t encoder_ccw = {
     .key = (keypos_t){.row = 13, .col = 0},
-    .pressed = false,
-    .type = KEY_EVENT
+    .pressed = false
 };
 
 keyevent_t encoder_cw = {
     .key = (keypos_t){.row = 13, .col = 1},
-    .pressed = false,
-    .type = KEY_EVENT
+    .pressed = false
 };
 
 void matrix_scan_user(void) {
-    if (encoder_ccw.pressed) {
+    if (IS_PRESSED(encoder_ccw)) {
         encoder_ccw.pressed = false;
-        encoder_ccw.time = timer_read();
+        encoder_ccw.time = (timer_read() | 1);
         action_exec(encoder_ccw);
     }
 
-    if (encoder_cw.pressed) {
+    if (IS_PRESSED(encoder_cw)) {
         encoder_cw.pressed = false;
-        encoder_cw.time = timer_read();
+        encoder_cw.time = (timer_read() | 1);
         action_exec(encoder_cw);
     }
 }
@@ -56,11 +54,11 @@ void matrix_scan_user(void) {
 bool encoder_update_user(uint8_t index, bool clockwise) {
     if (clockwise) {
         encoder_cw.pressed = true;
-        encoder_cw.time = timer_read();
+        encoder_cw.time = (timer_read() | 1);
         action_exec(encoder_cw);
     } else {
         encoder_ccw.pressed = true;
-        encoder_ccw.time = timer_read();
+        encoder_ccw.time = (timer_read() | 1);
         action_exec(encoder_ccw);
     }
     return true;

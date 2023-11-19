@@ -52,6 +52,14 @@
 #    undef ENABLE_RGB_MATRIX_SOLID_MULTISPLASH
 #endif
 
+// If RGBLight is enabled
+#ifdef RGBLIGHT_ENABLE
+#    define RGBLED_NUM RGB_MATRIX_LED_COUNT
+
+#    define RGBLIGHT_EFFECT_SNAKE
+#    define RGBLIGHT_EFFECT_STATIC_GRADIENT
+#endif
+
 // Feature disable
 #ifndef NO_PRINT
 #    define NO_PRINT

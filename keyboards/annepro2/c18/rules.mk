@@ -32,6 +32,7 @@ WEAR_LEVELING_DRIVER = spi_flash
 
 # Custom RGB matrix handling
 RGB_MATRIX_ENABLE = yes
+RGB_MATRIX_DRIVER = custom
 
 # Keys
 CUSTOM_MATRIX = lite

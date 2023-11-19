@@ -18,7 +18,7 @@
 
 #include <stdbool.h>
 
-#include "keycodes.h"
+#include "keymap.h"
 
 /* Layer numbers shared across keymaps. */
 enum user_layer {

@@ -23,6 +23,7 @@
 #define RGB_MATRIX_SPLIT \
     { 43, 43 }
 
+#define RGB_DI_PIN D3
 #define RGB_MATRIX_LED_COUNT 86
 
 #define RGB_MATRIX_MAXIMUM_BRIGHTNESS 150

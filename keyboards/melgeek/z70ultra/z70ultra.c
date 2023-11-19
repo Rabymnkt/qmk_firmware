@@ -14,7 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "quantum.h"
+#include "z70ultra.h"
 
 
 #ifdef RGB_MATRIX_ENABLE
@@ -164,5 +164,15 @@ void matrix_init_kb(void) {
     IS31FL3741_update_led_control_registers(DRIVER_ADDR_1, 0);
 
     matrix_init_user();
+}
+
+void suspend_power_down_kb(void) {
+    rgb_matrix_set_suspend_state(true);
+    suspend_power_down_user();
+}
+
+void suspend_wakeup_init_kb(void) {
+    rgb_matrix_set_suspend_state(false);
+    suspend_wakeup_init_user();
 }
 #endif

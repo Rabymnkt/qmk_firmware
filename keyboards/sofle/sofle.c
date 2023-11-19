@@ -1,4 +1,4 @@
-#include "quantum.h"
+#include "sofle.h"
 
 #ifdef SWAP_HANDS_ENABLE
 

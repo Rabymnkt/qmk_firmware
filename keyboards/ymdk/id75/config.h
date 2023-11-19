@@ -16,6 +16,7 @@
 
 #pragma once
 
+#define RGB_DI_PIN B9
 #define RGB_MATRIX_LED_COUNT 89
 
 #define RGB_DISABLE_WHEN_USB_SUSPENDED

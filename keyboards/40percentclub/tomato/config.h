@@ -1,5 +1,13 @@
 #pragma once
 
+
+/* key matrix pins */
+#define MATRIX_ROW_PINS { F7, B1, B3, B2, B6 }
+#define MATRIX_COL_PINS { B4, E6, D7, C6, D4, D0 }
+
+/* COL2ROW or ROW2COL */
+#define DIODE_DIRECTION COL2ROW
+
 /* Locking resynchronize hack */
 #define LOCKING_RESYNC_ENABLE
 
@@ -7,6 +15,7 @@
 #define PERMISSIVE_HOLD
 
 /* setup lighting */
+#define RGB_DI_PIN B5
 #define RGBLIGHT_EFFECT_BREATHING
 #define RGBLIGHT_EFFECT_RAINBOW_MOOD
 #define RGBLIGHT_EFFECT_RAINBOW_SWIRL

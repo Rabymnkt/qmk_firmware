@@ -1,4 +1,4 @@
-#include "alvicstep.h"
+#include "kinesis.h"
 
 // begin section origin  https://github.com/alvicstep/tmk_keyboard 
 

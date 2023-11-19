@@ -1,4 +1,4 @@
-#include QMK_KEYBOARD_H
+#include "mt980.h"
 
 bool numlock_on = true;
 

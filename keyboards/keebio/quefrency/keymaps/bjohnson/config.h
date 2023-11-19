@@ -23,6 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define TAPPING_TERM 500
 
+#define IGNORE_MOD_TAP_INTERRUPT
 #define PERMISSIVE_HOLD
 #define FORCE_NKRO
 #define RETRO_TAPPING

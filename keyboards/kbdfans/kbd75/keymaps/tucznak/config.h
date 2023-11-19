@@ -11,7 +11,9 @@
 #define RETRO_TAPPING
 
 /* turn off RGB when computer sleeps */
+#ifdef RGB_DI_PIN
 #define RGBLIGHT_SLEEP
+#endif
 
 #ifdef BACKLIGHT_LEVELS
 #undef BACKLIGHT_LEVELS

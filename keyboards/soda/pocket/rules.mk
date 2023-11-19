@@ -1,4 +1,5 @@
 RGB_MATRIX_ENABLE = yes
+RGB_MATRIX_DRIVER = WS2812
 
 BOOTMAGIC_ENABLE = yes      # Enable Bootmagic Lite
 MOUSEKEY_ENABLE = yes       # Mouse keys

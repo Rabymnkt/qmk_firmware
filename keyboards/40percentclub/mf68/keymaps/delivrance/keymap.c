@@ -138,7 +138,7 @@ void led_blink(void) {
     backlight_toggle();
 }
 
-void dynamic_macro_record_start_user(int8_t direction) {
+void dynamic_macro_record_start_user(void) {
     led_blink();
 }
 

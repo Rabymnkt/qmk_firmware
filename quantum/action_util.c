@@ -46,12 +46,6 @@ static uint8_t oneshot_locked_mods = 0;
 uint8_t        get_oneshot_locked_mods(void) {
     return oneshot_locked_mods;
 }
-void add_oneshot_locked_mods(uint8_t mods) {
-    if ((oneshot_locked_mods & mods) != mods) {
-        oneshot_locked_mods |= mods;
-        oneshot_locked_mods_changed_kb(oneshot_locked_mods);
-    }
-}
 void set_oneshot_locked_mods(uint8_t mods) {
     if (mods != oneshot_locked_mods) {
         oneshot_locked_mods = mods;
@@ -61,12 +55,6 @@ void set_oneshot_locked_mods(uint8_t mods) {
 void clear_oneshot_locked_mods(void) {
     if (oneshot_locked_mods) {
         oneshot_locked_mods = 0;
-        oneshot_locked_mods_changed_kb(oneshot_locked_mods);
-    }
-}
-void del_oneshot_locked_mods(uint8_t mods) {
-    if (oneshot_locked_mods & mods) {
-        oneshot_locked_mods &= ~mods;
         oneshot_locked_mods_changed_kb(oneshot_locked_mods);
     }
 }
@@ -90,7 +78,7 @@ bool has_oneshot_mods_timed_out(void) {
  *   L => are layer bits
  *   S => oneshot state bits
  */
-static uint8_t oneshot_layer_data = 0;
+static int8_t oneshot_layer_data = 0;
 
 inline uint8_t get_oneshot_layer(void) {
     return oneshot_layer_data >> 3;

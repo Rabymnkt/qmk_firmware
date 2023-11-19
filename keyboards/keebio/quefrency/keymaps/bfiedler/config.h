@@ -25,3 +25,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // https://docs.qmk.fm/#/tap_hold?id=tap-hold-configuration-options
 #define TAPPING_TERM 120
 //#define PERMISSIVE_HOLD
+#define IGNORE_MOD_TAP_INTERRUPT

@@ -14,9 +14,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "quantum.h"
-#include "common/remote_kb.h"
-#include "common/bitc_led.h"
+#include QMK_KEYBOARD_H
 
 typedef struct PACKED {
     uint8_t r;
@@ -87,11 +85,15 @@ bool oled_task_kb(void) {
 #endif
 
 static void process_encoder_matrix(encodermap_t pos) {
-    action_exec(MAKE_KEYEVENT(pos.r, pos.c, true));
+    action_exec((keyevent_t){
+        .key = (keypos_t){.row = pos.r, .col = pos.c}, .pressed = true, .time = (timer_read() | 1) /* time should not be 0 */
+    });
 #if TAP_CODE_DELAY > 0
     wait_ms(TAP_CODE_DELAY);
 #endif
-    action_exec(MAKE_KEYEVENT(pos.r, pos.c, false));
+    action_exec((keyevent_t){
+        .key = (keypos_t){.row = pos.r, .col = pos.c}, .pressed = false, .time = (timer_read() | 1) /* time should not be 0 */
+    });
 }
 
 bool encoder_update_kb(uint8_t index, bool clockwise) {

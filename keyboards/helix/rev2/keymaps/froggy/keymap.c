@@ -71,6 +71,7 @@ enum macro_keycodes {
 //Macros
 #define M_SAMPLE M(KC_SAMPLEMACRO)
 
+#if MATRIX_ROWS == 10 // HELIX_ROWS == 5
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* Base
@@ -177,6 +178,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______,  _______, KC_PDOT,    KC_COMM, _______, _______,        _______
       )
 };
+#else
+#error "undefined keymaps"
+#endif
+
 
 #ifdef AUDIO_ENABLE
 

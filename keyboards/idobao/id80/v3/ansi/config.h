@@ -7,8 +7,10 @@
  * RGB Matrix stuff
  * ---------------- */
 
+#define RGB_DI_PIN E2
+
 // RGB Matrix config
-#if defined(RGB_MATRIX_ENABLE)
+#if defined(RGB_DI_PIN) && defined(RGB_MATRIX_ENABLE)
 
     #define RGB_MATRIX_LED_COUNT 94
 

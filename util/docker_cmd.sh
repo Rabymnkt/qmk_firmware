@@ -55,5 +55,5 @@ fi
 	$uid_arg \
 	-w /qmk_firmware \
 	-v "$dir":/qmk_firmware \
-	ghcr.io/qmk/qmk_cli \
+	qmkfm/qmk_cli \
 	"$@"

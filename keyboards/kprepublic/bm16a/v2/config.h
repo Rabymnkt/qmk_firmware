@@ -3,6 +3,7 @@
 
 #pragma once
 
+#define RGB_DI_PIN B9
 #define RGB_MATRIX_LED_COUNT 16
 
 #define WS2812_PWM_DRIVER PWMD4

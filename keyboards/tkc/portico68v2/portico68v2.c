@@ -15,7 +15,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "quantum.h"
+#include "portico68v2.h"
 
 #ifdef RGB_MATRIX_ENABLE
 const is31_led g_is31_leds[RGB_MATRIX_LED_COUNT] = {

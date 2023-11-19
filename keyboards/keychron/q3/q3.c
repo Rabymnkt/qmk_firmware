@@ -14,7 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "quantum.h"
+#include "q3.h"
 #include "rgb_matrix.h"
 
 // clang-format off

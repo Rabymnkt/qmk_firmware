@@ -60,6 +60,7 @@
 
 #define NO_ACTION_ONESHOT
 #define QUICK_TAP_TERM 0
+#define IGNORE_MOD_TAP_INTERRUPT
 
 // #include "config_led.h"
 // #include "dz60rgb.h"

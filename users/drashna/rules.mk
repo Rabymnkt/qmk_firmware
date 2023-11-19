@@ -1,21 +1,11 @@
 SRC += $(USER_PATH)/drashna.c \
         $(USER_PATH)/callbacks.c \
         $(USER_PATH)/keyrecords/process_records.c \
-        $(USER_PATH)/keyrecords/tapping.c \
-        $(USER_PATH)/eeconfig_users.c
+        $(USER_PATH)/keyrecords/tapping.c
 
 # TOP_SYMBOLS = yes
 
-DEBOUNCE_TYPE        = asym_eager_defer_pk
-DEFERRED_EXEC_ENABLE = yes
-OS_DETECTION_ENABLE  = yes
-
-ifeq ($(PLATFORM),CHIBIOS)
-    # cortex-m4 has DSP+FPU support, so use hack to enable it for lib8tion
-    ifeq ($(strip $(MCU)), cortex-m4)
-        OPT_DEFS += -DFASTLED_TEENSY3
-    endif
-else
+ifneq ($(PLATFORM),CHIBIOS)
     ifneq ($(strip $(LTO_SUPPORTED)), no)
         LTO_ENABLE        = yes
     endif
@@ -24,7 +14,16 @@ else
 endif
 # DEBUG_MATRIX_SCAN_RATE_ENABLE = api
 
--include $(USER_PATH)/../../../qmk_secrets/rules.mk
+ifneq ($(strip $(NO_SECRETS)), yes)
+    ifneq ("$(wildcard $(USER_PATH)/../../../qmk_secrets/secrets.c)","")
+        SRC += $(USER_PATH)/../../../qmk_secrets/secrets.c
+        $(shell touch $(USER_PATH)/../../../qmk_secrets/secrets.c)
+        SECURE_ENABLE = yes
+    endif
+    ifeq ($(strip $(NO_SECRETS)), lite)
+        OPT_DEFS += -DNO_SECRETS
+    endif
+endif
 
 ifeq ($(strip $(MAKE_BOOTLOADER)), yes)
     OPT_DEFS += -DMAKE_BOOTLOADER
@@ -68,6 +67,7 @@ ifeq ($(strip $(RGBLIGHT_ENABLE)), yes)
         endif
         ifeq ($(strip $(RGBLIGHT_STARTUP_ANIMATION)), yes)
             OPT_DEFS += -DRGBLIGHT_STARTUP_ANIMATION
+            DEFERRED_EXEC_ENABLE = yes
         endif
     endif
 endif
@@ -92,7 +92,23 @@ ifeq ($(strip $(I2C_SCANNER_ENABLE)), yes)
     CONSOLE_ENABLE := yes
 endif
 
--include $(USER_PATH)/oled/rules.mk
+CUSTOM_OLED_DRIVER ?= yes
+ifeq ($(strip $(OLED_ENABLE)), yes)
+    ifeq ($(strip $(OLED_DRIVER)), custom)
+        OPT_DEFS += -DOLED_ENABLE \
+            -DOLED_DRIVER_SH1107
+        SRC += $(USER_PATH)/oled/sh110x.c
+        QUANTUM_LIB_SRC += i2c_master.c
+    endif
+    ifeq ($(strip $(CUSTOM_OLED_DRIVER)), yes)
+        OPT_DEFS += -DCUSTOM_OLED_DRIVER
+        SRC += $(USER_PATH)/oled/oled_stuff.c
+    endif
+    ifeq ($(strip $(OLED_DISPLAY_TEST)), yes)
+        OPT_DEFS += -DOLED_DISPLAY_TEST
+    endif
+    DEFERRED_EXEC_ENABLE = yes
+endif
 
 CUSTOM_POINTING_DEVICE ?= yes
 ifeq ($(strip $(POINTING_DEVICE_ENABLE)), yes)
@@ -100,10 +116,6 @@ ifeq ($(strip $(POINTING_DEVICE_ENABLE)), yes)
         SRC += $(USER_PATH)/pointing/pointing.c
         OPT_DEFS += -DCUSTOM_POINTING_DEVICE
         OPT_DEFS += -DPOINTING_DEVICE_AUTO_MOUSE_ENABLE
-    endif
-    POINTING_DEVICE_MOUSE_JIGGLER_ENABLE ?= yes
-    ifeq ($(strip $(POINTING_DEVICE_MOUSE_JIGGLER_ENABLE)), yes)
-        OPT_DEFS += -DPOINTING_DEVICE_MOUSE_JIGGLER_ENABLE
     endif
 endif
 
@@ -116,6 +128,10 @@ ifeq ($(strip $(CUSTOM_SPLIT_TRANSPORT_SYNC)), yes)
 
 endif
 
+ifeq ($(strip $(AUTOCORRECTION_ENABLE)), yes)
+   AUTOCORRECT_ENABLE = yes
+endif
+
 CUSTOM_BOOTMAGIC_ENABLE ?= yes
 ifeq ($(strip $(CUSTOM_BOOTMAGIC_ENABLE)), yes)
     ifeq ($(strip $(BOOTMAGIC_ENABLE)), yes)
@@ -123,14 +139,7 @@ ifeq ($(strip $(CUSTOM_BOOTMAGIC_ENABLE)), yes)
     endif
 endif
 
-CUSTOM_DYNAMIC_MACROS_ENABLE ?= no
-ifeq ($(strip $(CUSTOM_DYNAMIC_MACROS_ENABLE)), yes)
-    SRC += $(USER_PATH)/keyrecords/dynamic_macros.c
-    OPT_DEFS += -DCUSTOM_DYNAMIC_MACROS_ENABLE
-endif
-
-ifeq ($(strip $(HARDWARE_DEBUG_ENABLE)), yes)
-    LTO_ENABLE := no
-    OPT := 0
-    OPT_DEFS += -g
+OS_DETECTION_ENABLE ?= yes
+ifeq ($(strip $(OS_DETECTION_ENABLE)), yes)
+    DEFERRED_EXEC_ENABLE = yes
 endif

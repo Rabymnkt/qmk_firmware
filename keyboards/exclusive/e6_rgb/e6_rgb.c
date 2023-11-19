@@ -1,4 +1,8 @@
-#include "quantum.h"
+/**
+ * e6_rgb.c
+ */
+
+#include "e6_rgb.h"
 
 #ifdef RGB_MATRIX_ENABLE
 void matrix_init_kb(void) {

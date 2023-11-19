@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "yosino58.h"
 
 char host_led_state_str[24];
 

@@ -4,6 +4,7 @@
 */
 #pragma once
 
+#define IGNORE_MOD_TAP_INTERRUPT
 #define TAPPING_TERM 200
 
 #define ONESHOT_TAP_TOGGLE 3

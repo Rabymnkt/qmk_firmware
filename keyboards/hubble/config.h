@@ -5,6 +5,7 @@
 
 
 /* rgb */
+#define RGB_DI_PIN D2
 #define RGBLED_NUM 7
 #define RGBLIGHT_SLEEP
 #define RGBLIGHT_EFFECT_BREATHING

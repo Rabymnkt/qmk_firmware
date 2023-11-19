@@ -17,7 +17,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "quantum.h"
+#include "n6.h"
 #include "i2c_master.h"
 #include "drivers/led/issi/is31fl3731.h"
 

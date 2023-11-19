@@ -24,3 +24,4 @@
 #undef PRODUCT
 #define PRODUCT         "Moonlander Mark I - Modified by <@jjerrell>"
 
+#define IGNORE_MOD_TAP_INTERRUPT

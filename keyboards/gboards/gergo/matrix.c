@@ -17,11 +17,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include "matrix.h"
+#include <stdint.h>
+#include <stdbool.h>
+#include <avr/io.h>
 #include "wait.h"
+#include "action_layer.h"
+#include "print.h"
 #include "debug.h"
 #include "util.h"
 #include "debounce.h"
-#include "gergo.h"
+#include QMK_KEYBOARD_H
 
 #ifdef BALLER
 #include <avr/interrupt.h>

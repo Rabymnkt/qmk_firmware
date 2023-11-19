@@ -14,7 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "quantum.h"
+#include "delta.h"
 
 #define LED_PIN_ON_STATE 1
 // Inits all indicator LEDs as push-pull outputs

@@ -1,4 +1,4 @@
-#include "ergodox_infinity.h"
+#include QMK_KEYBOARD_H
 #include <ch.h>
 #include <hal.h>
 #include <string.h>

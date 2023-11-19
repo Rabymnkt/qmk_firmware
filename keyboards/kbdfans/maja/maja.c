@@ -1,4 +1,4 @@
-#include "quantum.h"
+#include "maja.h"
 
 const is31_led PROGMEM g_is31_leds[RGB_MATRIX_LED_COUNT] = {
 	{0, C2_1,  C3_1,  C4_1},  // LA0

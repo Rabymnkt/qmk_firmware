@@ -12,3 +12,5 @@ RGBLIGHT_ENABLE = no        # Enable keyboard RGB underglow
 AUDIO_ENABLE = no           # Audio output
 ENCODER_ENABLE = yes
 DEBOUNCE_TYPE	  = sym_defer_pk
+
+SRC += encoder_actions.c

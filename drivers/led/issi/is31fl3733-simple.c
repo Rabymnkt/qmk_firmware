@@ -129,7 +129,9 @@ bool IS31FL3733_write_pwm_buffer(uint8_t addr, uint8_t *pwm_buffer) {
         // Copy the data from i to i+15.
         // Device will auto-increment register for data after the first byte
         // Thus this sets registers 0x00-0x0F, 0x10-0x1F, etc. in one transfer.
-        memcpy(g_twi_transfer_buffer + 1, pwm_buffer + i, 16);
+        for (int j = 0; j < 16; j++) {
+            g_twi_transfer_buffer[1 + j] = pwm_buffer[i + j];
+        }
 
 #if ISSI_PERSISTENCE > 0
         for (uint8_t i = 0; i < ISSI_PERSISTENCE; i++) {

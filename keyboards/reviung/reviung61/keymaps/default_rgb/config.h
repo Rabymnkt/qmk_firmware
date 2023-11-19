@@ -19,7 +19,8 @@
 // place overrides here
 
 // ---  RGB underglow  ---
-#define WS2812_DI_PIN B7
+#define RGB_DI_PIN B7
+#ifdef RGB_DI_PIN
   #define RGBLED_NUM 12
   #define RGBLIGHT_HUE_STEP 16
   #define RGBLIGHT_SAT_STEP 16
@@ -36,3 +37,5 @@
 #define RGBLIGHT_EFFECT_RGB_TEST
 #define RGBLIGHT_EFFECT_ALTERNATING
 #define RGBLIGHT_EFFECT_TWINKLE
+
+#endif
