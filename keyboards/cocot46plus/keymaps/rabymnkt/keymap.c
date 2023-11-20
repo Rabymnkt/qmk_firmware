@@ -47,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                                          KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RSFT,
   //|-------------------------------------------------------|                                   |-------------------------------------------------------|
                         KC_LGUI, KC_LALT,   LOWER, KC_BSPC, KC_MS_BTN1,             KC_MS_BTN2,  KC_SPC,   RAISE, KC_RGUI, KC_RALT,
-                                                                 KC_BRIU, KC_MS_BTN3,  KC_BRID, XXXXXXX, XXXXXXX, XXXXXXX
+                                                                 KC_PGUP, KC_MS_BTN3,  KC_PGDN, XXXXXXX, XXXXXXX, XXXXXXX
                                                             //`--------------'  `--------------'
     ),
 
@@ -60,7 +60,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_LSFT, XXXXXXX, KC_CAPS, KC_BTN2, KC_BTN1, KC_BTN3,                                       KC_HOME, KC_PGDN, KC_PGUP,  KC_END, KC_RGUI, KC_RALT,
   //|-------------------------------------------------------|                                   |-------------------------------------------------------|
                         _______, _______, _______, _______,   KC_MS_BTN4,             KC_MS_BTN5,  KC_ENT,   RAISE, _______, _______,
-                                                                 KC_VOLU, KC_MS_BTN3,    KC_VOLD, XXXXXXX, XXXXXXX, XXXXXXX
+                                                                 KC_BRIU, KC_MS_BTN3,    KC_BRID, XXXXXXX, XXXXXXX, XXXXXXX
                                                             //`--------------'  `--------------'
     ),
   [_RAISE] = LAYOUT(
