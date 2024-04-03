@@ -28,3 +28,6 @@
 [submodule "repos/keyball"]
 	path = repos/keyball
 	url = https://github.com/Yowkees/keyball.git
+[submodule "repos/keyball44_takashicompany"]
+	path = repos/keyball44_takashicompany
+	url = https://github.com/takashicompany/qmk_firmware.git
