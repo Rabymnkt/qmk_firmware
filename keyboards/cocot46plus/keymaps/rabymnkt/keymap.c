@@ -16,7 +16,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include QMK_KEYBOARD_H
-#include <stdio.h>  
+#include <stdio.h>
 #include "quantum.h"
 
 static bool is_lower_pressed = false;
@@ -57,7 +57,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|-------------------------------------------------------|                                   |-------------------------------------------------------|
       KC_LCTL, XXXXXXX, RSG(KC_LEFT), KC_LNG2, ESC_ENG, TT(_NUMPAD),                              KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, XXXXXXX, KC_RCTL,
   //|-------------------------------------------------------|                                   |-------------------------------------------------------|
-      KC_LSFT, XXXXXXX, KC_CAPS, KC_BTN2, KC_BTN1, KC_BTN3,                                       KC_HOME, KC_PGDN, KC_PGUP,  KC_END, KC_RGUI, KC_RALT,
+      KC_LSFT, KC_CAPS, XXXXXXX, KC_BTN2, KC_BTN1, KC_BTN3,                                       KC_HOME, KC_PGDN, KC_PGUP,  KC_END, KC_RGUI, KC_RALT,
   //|-------------------------------------------------------|                                   |-------------------------------------------------------|
                         _______, _______, _______, _______,   KC_MS_BTN4,             KC_MS_BTN5,  KC_ENT,   RAISE, _______, _______,
                                                                  KC_BRIU, KC_MS_BTN3,    KC_BRID, XXXXXXX, XXXXXXX, XXXXXXX
@@ -82,7 +82,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|-------------------------------------------------------|                                   |-------------------------------------------------------|
       KC_LCTL, KC_PSCR,  KC_INS, KC_VOLD, KC_MUTE, KC_VOLU,                                       KC_WBAK, KC_WSCH, KC_WHOM, KC_WFWD, KC_WREF, SCRL_IN,
   //|-------------------------------------------------------|                                   |-------------------------------------------------------|
-      KC_LSFT,  CPI_SW, SCRL_SW,IME_LOCK, LAG_SWP, KC_MPLY,                                       KC_MPRV, LAG_NRM,IME_UNLOCK,KC_MNXT,_______, _______,
+      KC_LSFT,  CPI_SW, SCRL_SW, XXXXXXX,IME_LOCK, KC_MPLY,                                       KC_MPRV,IME_UNLOCK,XXXXXXX,KC_MNXT, _______, _______,
   //|-------------------------------------------------------|                                   |-------------------------------------------------------|
                         _______, _______, _______, _______,  _______,                    _______, _______,   _______, _______, _______,
                                                                  KC_PGUP, KC_MS_BTN3,  KC_PGDOWN, XXXXXXX, XXXXXXX, XXXXXXX

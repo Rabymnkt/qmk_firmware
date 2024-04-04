@@ -1,0 +1,7 @@
+RGBLIGHT_ENABLE = no
+
+OLED_ENABLE = yes
+
+VIA_ENABLE = no
+
+GRAVE_ESC_ENABLE = no
