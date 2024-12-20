@@ -25,10 +25,7 @@ enum layer_number {
     _BASE = 0,
     _LOWER = 1,
     _RAISE = 2,
-    _TRACKBALL = 3,
-    _Layer4 = 4,
-    _Layer5 = 5,
-    _Layer6 = 6
+    _TRACKBALL = 3
 };
 
 
@@ -36,15 +33,6 @@ enum layer_number {
 #define RS_HENK LT(2,KC_HENK)  // raise
 #define DEL_ALT ALT_T(KC_DEL)
 
-/*
-#define CPI_SW USER00
-#define SCRL_SW USER01
-#define ROT_R15 USER02
-#define ROT_L15 USER03
-#define SCRL_MO USER04
-#define SCRL_TO USER05
-#define SCRL_IN USER06
-*/
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT(
@@ -94,42 +82,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                         KC_LGUI, DEL_ALT, KC_TRNS,  KC_SPC,   KC_MS_BTN1,             KC_MS_BTN2,  KC_ENT, RS_HENK, KC_BSPC,  KC_ESC,
                                                                  KC_PGUP, KC_MS_BTN3,  KC_PGDOWN, XXXXXXX, XXXXXXX, XXXXXXX
                                                             //`--------------'  `--------------'
-    ),
-  [_Layer4] = LAYOUT(
-  //|-------------------------------------------------------|                                   |-------------------------------------------------------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|-------------------------------------------------------|                                   |-------------------------------------------------------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|-------------------------------------------------------|                                   |-------------------------------------------------------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|-------------------------------------------------------|                                   |-------------------------------------------------------|
-                        XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,   XXXXXXX,             XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,
-                                                                 XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
-                                                            //`--------------'  `--------------'
-    ),
-  [_Layer5] = LAYOUT(
-  //|-------------------------------------------------------|                                   |-------------------------------------------------------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|-------------------------------------------------------|                                   |-------------------------------------------------------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|-------------------------------------------------------|                                   |-------------------------------------------------------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|-------------------------------------------------------|                                   |-------------------------------------------------------|
-                        XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,   XXXXXXX,             XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,
-                                                                 XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
-                                                            //`--------------'  `--------------'
-    ),
-  [_Layer6] = LAYOUT(
-  //|-------------------------------------------------------|                                   |-------------------------------------------------------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|-------------------------------------------------------|                                   |-------------------------------------------------------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|-------------------------------------------------------|                                   |-------------------------------------------------------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|-------------------------------------------------------|                                   |-------------------------------------------------------|
-                        XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,   XXXXXXX,             XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,
-                                                                 XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
-                                                            //`--------------'  `--------------'
     )
 };
 
@@ -177,8 +129,41 @@ void matrix_scan_user(void) {
 }
 
 
+/*
+report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
+    int8_t degree = 45;
+    int8_t x_rev, y_rev;
+    x_rev =  + mouse_report.x * cos(degree) + mouse_report.y * sin(degree);
+    y_rev =  - mouse_report.x * sin(degree) + mouse_report.y * cos(degree);
+    if (isScrollMode) {
+        mouse_report.h = x_rev;
+        #ifdef COCOT_DRAGSCROLL_INVERT
+                // Invert vertical scroll direction
+                mouse_report.v = -y_rev;
+        #else
+                mouse_report.v = y_rev;
+        #endif
+        // mouse_report.v = y_rev;
+        mouse_report.x = 0;
+        mouse_report.y = 0;
+    } else {
+        mouse_report.x = x_rev;
+        mouse_report.y = y_rev;
+    }
+    return mouse_report;
+}
+*/
+
+int hue_fst = -1;
+int sat_fst = -1;
+int val_fst = -1;
+
 
 layer_state_t layer_state_set_user(layer_state_t state) {
+    hue_fst = rgblight_get_hue();
+    sat_fst = rgblight_get_sat();
+    val_fst = rgblight_get_val();
+
     switch (get_highest_layer(state)) {
     case _LOWER:
         rgblight_sethsv_range(HSV_BLUE, 0, 2);
@@ -192,25 +177,14 @@ layer_state_t layer_state_set_user(layer_state_t state) {
         rgblight_sethsv_range(HSV_GREEN, 0, 2);
         cocot_set_scroll_mode(false);
         break;
-    case _Layer4:
-        rgblight_sethsv_range(HSV_YELLOW, 0, 2);
-        cocot_set_scroll_mode(false);
-        break;
-    case _Layer5:
-        rgblight_sethsv_range(HSV_CYAN, 0, 2);
-        cocot_set_scroll_mode(false);
-        break;
-    case _Layer6:
-        rgblight_sethsv_range(HSV_ORANGE, 0, 2);
-        cocot_set_scroll_mode(false);
-        break;
     default:
-        rgblight_sethsv_range( 0, 0, 0, 0, 2);
+        // rgblight_sethsv_range( 0, 0, 0, 0, 2);
+        rgblight_sethsv_range(hue_fst, sat_fst, val_fst, 0, 2);
         cocot_set_scroll_mode(false);
         break;
     }
     rgblight_set_effect_range( 2, 10);
-      return state;
+  return state;
 };
 
 
@@ -221,3 +195,4 @@ bool oled_task_user(void) {
     return false;
 }
 #endif
+
